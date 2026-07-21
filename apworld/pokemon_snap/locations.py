@@ -63,16 +63,6 @@ class PokemonSnapLocation(Location):
         item.location = self
 
 
-LEVEL_IDS = {
-    LVL_BEACH:   0,
-    LVL_TUNNEL:  1,
-    LVL_VOLCANO: 2,
-    LVL_RIVER:   3,
-    LVL_CAVE:    4,
-    LVL_VALLEY:  5,
-    LVL_CLOUD:   6,
-}
-
 POKEMON_IN_MULTIPLE_LEVELS = ["Pikachu", "Bulbasaur", "Zubat", "Magikarp"]
 
 def wonderful(pokemon_name: str):
@@ -200,7 +190,7 @@ location_tables = {
 
 for region, species_data_list in species_data_tables.items():
     location_data_list = []
-    region_id = LEVEL_IDS[region]
+    region_id = COURSE_IDS[region]
     for base_id, name, can_wonderful, can_multiple in species_data_list:
         id = regional_id(base_id, region_id)
         if name in POKEMON_IN_MULTIPLE_LEVELS:
@@ -213,4 +203,35 @@ for region, species_data_list in species_data_tables.items():
     location_tables[region] = location_data_list
 
 
-# TODO: add special pose pictures here
+special_poses = {
+    1: "Surfing Pikachu",
+    2: "Pikachu on a Ball",
+    3: "Balloon Pikachu",
+    4: "Speed Pikachu",
+    5: "Pikachu on a Stump",
+    6: "Flying Pikachu",
+    7: "Gust-Using Pidgey",
+    8: "Jigglypuff on Stage",
+    9: "Graveler's Group Dance",
+    10: "Rare Pokemon Mew",
+    11: "Fighting Magmar",
+    12: "Jigglypuff Trio on Stage",
+}
+
+pose_locations = {
+    LVL_BEACH:   [1, 5, 7],
+    LVL_TUNNEL:  [2],
+    LVL_VOLCANO: [11],
+    LVL_RIVER:   [4],
+    LVL_CAVE:    [3, 6, 8, 12],
+    LVL_VALLEY:  [9],
+ 
+    # I don't think we want this? Or maybe it's the goal item eventually?
+    # LVL_CLOUD:   [10]
+}
+
+for region, pose_ids in pose_locations.items():
+    location_data_list = location_tables[region]
+    for pose_id in pose_ids:
+        pose_name = special_poses[pose_id]
+        location_data_list.append(PokemonSnapLocationData(special_id(pose_id), pose_name, _PHOTO))
