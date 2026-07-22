@@ -15,7 +15,7 @@ jobs:
       - name: Build
         run: |
           cd ..
-          zip -r ../pokemon_snap.apworld PokemonSnap_Archipelago
+          zip -r pokemon_snap.apworld PokemonSnap_Archipelago
       - name: Attach apworld to release
         uses: softprops/action-gh-release@v3
         with:
