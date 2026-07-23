@@ -19,7 +19,7 @@ jobs:
         with:
           path: pokemon_snap
       - name: Build
-        run: zip -r pokemon_snap.apworld pokemon_snap
+        run: zip -r pokemon_snap.apworld ${{ github.event.repository.name }}/pokemon_snap
       - name: Attach apworld to release
         uses: softprops/action-gh-release@v3
         with:
