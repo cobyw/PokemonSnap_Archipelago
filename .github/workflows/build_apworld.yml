@@ -1,8 +1,6 @@
 name: Build AP World
 
-on:
-  release:
-    types: [published]
+on: push
 
 jobs:
   build:
