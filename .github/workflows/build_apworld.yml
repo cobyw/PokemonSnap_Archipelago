@@ -24,7 +24,10 @@ jobs:
       - name: List Remaining Files
         run: ls
       - name: Zip apworld
-        run: zip -r pokemon_snap.apworld ../${{ github.event.repository.name }}
+        run: |
+        cd ..
+        zip -r pokemon_snap.apworld ${{ github.event.repository.name }}
+        mv pokemon_snap.apworld ${{ github.event.repository.name }}
       - name: List Files With Zip
         run: ls
       - name: Attach apworld to release
