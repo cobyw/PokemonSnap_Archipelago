@@ -12,13 +12,21 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6
-      - name: Build
-        working-directory: ..
+      - name: List Initial Files
+        run: ls
+      - name: Remove Excess Files
         run: |
-          mv ${{ github.event.repository.name }} pokemon_snap
-          zip -r pokemon_snap.apworld pokemon_snap
-          mv pokemon_snap ${{ github.event.repository.name }}
-          mv pokemon_snap.apworld /${{ github.event.repository.name }}/
+          rm rf .github
+          rm rf docs
+          rm rf test
+          rm rf .git
+          rm rf .gitignore
+      - name: List Remaining Files
+        run: ls
+      - name: Zip apworld
+        run: zip -r pokemon_snap.apworld ./{{ github.event.repository.name }}
+      - name: List Files With Zip
+        run: ls
       - name: Attach apworld to release
         uses: softprops/action-gh-release@v3
         with:
