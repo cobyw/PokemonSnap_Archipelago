@@ -4,10 +4,6 @@ on:
   release:
     types: [published]
 
-defaults:
-  run:
-    working-directory: ..
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -19,7 +15,10 @@ jobs:
         with:
           path: pokemon_snap
       - name: Build
-        run: zip -r pokemon_snap.apworld ${{ github.event.repository.name }}/pokemon_snap
+        working-directory: ..
+        run: |
+          zip -r pokemon_snap.apworld pokemon_snap
+          mv pokemon_snap.apworld /pokemon_snap/
       - name: Attach apworld to release
         uses: softprops/action-gh-release@v3
         with:
