@@ -16,11 +16,11 @@ jobs:
         run: ls
       - name: Remove Excess Files
         run: |
-          rm rf .github
-          rm rf docs
-          rm rf test
-          rm rf .git
-          rm rf .gitignore
+          rm -rf .github
+          rm -rf docs
+          rm -rf test
+          rm -rf .git
+          rm -rf .gitignore
       - name: List Remaining Files
         run: ls
       - name: Zip apworld
