@@ -5,7 +5,7 @@ from itertools import product
 from rule_builder.rules import Has, HasAll, HasAny, And, Rule, CanReachLocation, CollectionState, False_, HasGroup
 from .future_rules import AtLeast
 from .items import SIGN_PIC_NAMES, POKEMON_PIC_NAMES
-from .locations import wonderful, multiple, secret_exit, course, bonus, PokemonSnapLocationCategory as Category, species_data_tables, RNG_LOCATIONS, HARD_LOCATIONS
+from .locations import wonderful, multiple, secret_exit, course, bonus, PokemonSnapLocationCategory as Category, species_data_tables, RNG_LOCATIONS, HARD_LOCATIONS, TRICKSHOT_LOCATIONS
 from .constants import *
 from .items import PokemonSnapItemCategory
 if TYPE_CHECKING:
@@ -17,7 +17,7 @@ _HAS_APPLE = Has(POKEMON_FOOD)
 _HAS_FLUTE = Has(POKEFLUTE)
 _HAS_APPLE_OR_PESTER = HasAny(PESTER_BALL, POKEMON_FOOD)
 
-REPORT_EXCLUSIONS = RNG_LOCATIONS + HARD_LOCATIONS
+REPORT_EXCLUSIONS = RNG_LOCATIONS + HARD_LOCATIONS + TRICKSHOT_LOCATIONS
 
 location_name_functions = {
     Category.NORMAL_PHOTO:   (lambda s: s),

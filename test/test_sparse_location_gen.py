@@ -11,6 +11,7 @@ class TestSparseLocationGeneration(PokemonSnapTestBase):
         "secret_exits": False,
         "rng_checks": False,
         "hard_checks": False,
+        "trickshot_checks": False,
         "start_with_dash_engine": True,
     }
 

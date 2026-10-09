@@ -112,12 +112,20 @@ HARD_LOCATIONS = [
     wonderful(GOLDEEN),
 ]
 
+TRICKSHOT_LOCATIONS = [
+    # Beach
+    multiple(MEOWTH),
+    # River
+    wonderful(SLOWBRO),
+    # Cave
+    multiple(MUK),
+]
 
 species_data_tables = {
     LVL_BEACH: [
         PokemonSnapSpeciesData(id=7,  name=BUTTERFREE, multiple=True),
         PokemonSnapSpeciesData(id=9,  name=PIDGEY, multiple=True),
-        PokemonSnapSpeciesData(id=19, name=MEOWTH),
+        PokemonSnapSpeciesData(id=19, name=MEOWTH, multiple=True),
         PokemonSnapSpeciesData(id=34, name=DODUO),
         PokemonSnapSpeciesData(id=42, name=CHANSEY),
         PokemonSnapSpeciesData(id=43, name=KANGASKHAN),
@@ -163,7 +171,7 @@ species_data_tables = {
         PokemonSnapSpeciesData(id=20, name=PSYDUCK, multiple=True),
         PokemonSnapSpeciesData(id=24, name=POLIWAG, multiple=True),
         PokemonSnapSpeciesData(id=30, name=SLOWPOKE),
-        PokemonSnapSpeciesData(id=31, name=SLOWBRO),
+        PokemonSnapSpeciesData(id=31, name=SLOWBRO, multiple=True),
         PokemonSnapSpeciesData(id=37, name=SHELLDER, multiple=True),
         PokemonSnapSpeciesData(id=38, name=CLOYSTER, multiple=True),
         PokemonSnapSpeciesData(id=56, name=PORYGON, multiple=True),
@@ -177,7 +185,7 @@ species_data_tables = {
         PokemonSnapSpeciesData(id=25, name=WEEPINBELL),
         PokemonSnapSpeciesData(id=26, name=VICTREEBEL),
         PokemonSnapSpeciesData(id=35, name=GRIMER),
-        PokemonSnapSpeciesData(id=36, name=MUK),
+        PokemonSnapSpeciesData(id=36, name=MUK, multiple=True),
         PokemonSnapSpeciesData(id=48, name=JYNX, multiple=True),
         PokemonSnapSpeciesData(id=54, name=DITTO, multiple=True),
         PokemonSnapSpeciesData(id=58, name=ARTICUNO),

@@ -115,6 +115,15 @@ class IncludeHardChecks(Toggle):
     """
     display_name = "Include hard checks"
 
+class IncludeTrickshotChecks(Toggle):
+    """
+    Include the EXTREMELY hard photos as checks. They are:
+    - [Beach] Meowth: Multiple
+    - [River] Slowbro: Multiple,
+    - [Cave ] Muk: Multiple
+    These are sometimes considered TAS only and are not recommended for new players.
+    """
+    display_name = "Include trickshot (extremely hard) checks"
 
 class StartWithDashEngine(Toggle):
     """
@@ -160,6 +169,7 @@ class PokemonSnapOption(PerGameCommonOptions):
 
     rng_checks:  IncludeRNGChecks
     hard_checks: IncludeHardChecks
+    trickshot_checks: IncludeTrickshotChecks
 
     start_with_dash_engine: StartWithDashEngine
     enable_left_bumper_to_start_stop: PressLeftBumperToToggleZeroOne
@@ -190,7 +200,8 @@ pokemon_snap_option_groups = [
         "Checks - Pokemon",
 	[
 		IncludeRNGChecks,
-		IncludeHardChecks
+		IncludeHardChecks,
+        IncludeTrickshotChecks,
 	],
 	),
     OptionGroup(

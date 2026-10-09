@@ -10,7 +10,7 @@ from .constants import *
 from .items import PokemonSnapItem, PokemonSnapItemCategory, key_item_names, useful_item_names, \
     _all_items, build_item_pool, PokemonSnapItemData
 from .locations import PokemonSnapLocation, PokemonSnapLocationCategory, location_tables, bonus, \
-    RNG_LOCATIONS, HARD_LOCATIONS
+    RNG_LOCATIONS, HARD_LOCATIONS, TRICKSHOT_LOCATIONS
 from .options import PokemonSnapOption, PhotoBonusChecks, pokemon_snap_option_groups
 from .psnap_settings import PokemonSnapSettings
 from .rom import PokemonSnapProcedurePatch
@@ -146,6 +146,8 @@ class PokemonSnapWorld(World):
                 continue
             if location.name in HARD_LOCATIONS and not self.options.hard_checks:
                 continue
+            if location.name in TRICKSHOT_LOCATIONS and not self.options.trickshot_checks:
+                continue
 
             new_location = PokemonSnapLocation(
                 self.player,
@@ -226,5 +228,5 @@ class PokemonSnapWorld(World):
         return self.options.as_dict(
             "goal_type", "signs_required", "pokemon_required",
             "photo_bonuses", "pokemon_signs", "secret_exits", "report_photo_count",
-            "report_score_total", "rng_checks", "hard_checks",
+            "report_score_total", "rng_checks", "hard_checks", "trickshot_checks",
             "enable_left_bumper_to_start_stop", "camera_inversion")
